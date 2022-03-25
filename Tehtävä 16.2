@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tehtävä_16._2_Arvosana
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int i = 0;
+            string vastaus = "4==10"; //"K"; 
+
+
+            while (vastaus != "4 <= 10" && vastaus != "10 > 11" ) //|| vastaus != "s" && vastaus != "S")
+            {
+                Console.Write("Anna arvosanan väliltä 4-10, niin saat kuvauksen arvosanasta! ");
+                i = int.Parse(Console.ReadLine());
+                Console.WriteLine(" ");
+                    
+                switch (i)
+                {
+                    case 4:
+                        Console.WriteLine("On hylätty!");
+                        break;                       
+                    case 5:
+                        Console.WriteLine("On huono arvosana.");
+                        break;
+                    case 6:
+                        Console.WriteLine("On välttävä arvosana.");
+                        break;
+                    case 7:
+                        Console.WriteLine("On tyydyttävä arvosana.");
+                        break;
+                    case 8:
+                        Console.WriteLine("On hyvä arvosana.");
+                        break;
+                    case 9:
+                        Console.WriteLine("On kiitettävä arvosana.");
+                        break;
+                    case 10:
+                        Console.WriteLine("On erinomainen arvosana.");
+                        break;
+
+                    default:
+                        Console.WriteLine("Antamasi arvosana ei ole olemassa!");
+                        break;
+                }
+                    vastaus = Console.ReadLine();
+            }
+
+               
+
+        }
+    }
+}
