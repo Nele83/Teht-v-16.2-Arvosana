@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Apuvaaa
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Tehtävä 14 (Nele Neuhof)");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine();
+            Console.Write("Anna kokonaisluku? ");
+            int luku;//muuttuja
+            string value = Console.ReadLine();//value=string arvo.
+
+            bool result = Int32.TryParse(value, out luku);/*result=tulos
+            * Muuntaa luvun merkkijonoesityksen sen 32-bittiseksi
+            * etumerkilliseksi kokonaislukuvastineeksi. Palautusarvo kertoo, onnistuiko toiminto*/
+
+            if (result)//Jos tulos on luku
+            {
+                Console.WriteLine("Converted '{0}' to {1}.    JEE!", value, luku);
+            }
+            else
+            {
+                Console.WriteLine("Attempted conversion of '{0}' failed.    SORRY!", value == null ? "<null>" :value );
+            }
+        }
+    }
+}
