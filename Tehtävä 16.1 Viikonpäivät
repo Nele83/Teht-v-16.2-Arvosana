@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tehtävä_16._1_Viikonpäivät
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+
+        {               
+            int i = 0;//Esitellään muuttujat int sekä string.
+            string vastaus = "K"; 
+
+            while (vastaus != "e" && vastaus != "E") // 
+            {
+                   Console.Write("Anna numero väliltä 1-7, niin kerron mikä viikonpäivä on kyseessä? ");
+                   i = int.Parse(Console.ReadLine());
+                   Console.WriteLine();
+
+                  switch (i)
+                  {
+                     case 1:
+                     Console.WriteLine("Maanantai" + "\n");
+                     break;
+
+                     case 2:
+                     Console.Write("Tiistai" + "\n\n");
+                     break;
+
+                     case 3:
+                     Console.WriteLine("Keskiviikko" + "\n");
+                     break;
+
+                     case 4:
+                     Console.WriteLine("Torstai" + "\n");
+                     break;
+
+                     case 5:
+                     Console.WriteLine("Perjantai" + "\n");
+                     break;
+
+                     case 6:
+                     Console.WriteLine("Lauantai" + "\n");
+                     break;
+
+                     case 7:
+                     Console.WriteLine("Sunnuntai" + "\n");
+                     break;
+
+                  default:
+                   /* Vois näinkin tehdä: defaultin alle laittaa:if (i < 1 || i > 7) sit 
+                    * { 
+                    * Console.WriteLine("Antamasi numero ei ollut sallittu!);
+                    * }; 
+                      break; */
+                        Console.WriteLine("Antamansa numero ei ollut sallittu!" + "\n");
+                        break;
+                  } 
+                       Console.Write("Haluatko jatkaa (k/e)? "); // \\n saa myös tekstin näkyviin.
+                       vastaus = Console.ReadLine();
+                       Console.WriteLine(" ");                           
+            }                            
+        }
+    }
+}
+         
+
+        
+    
+
