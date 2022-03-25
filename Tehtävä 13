@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tehtävä_13
+{
+    class Program
+    {
+        public static int lukutaulukko(int luku1, int luku2, int luku3)
+        {
+            int tulos = luku1 + luku2 + luku3;
+            return tulos;
+        }
+        static void Main(string[] args)
+        {
+            int i = 0;
+            Console.WriteLine("Tehtävä 13 (Nele.N)");
+            Console.WriteLine("-----------------------");
+            Console.WriteLine();
+
+            Console.WriteLine("Anna 3  lukua, niin lasken niiden summan... ");
+            Console.WriteLine();
+            int luku1 = 0;
+            int luku2 = 0;
+            int luku3 = 0;
+
+            for (i = 1; i < 4; i++)
+            {
+                Console.Write("Anna ." + i + " luku? ", i);
+                int luku = int.Parse(Console.ReadLine());
+                if (i == 1)               
+                { luku1 = luku; }
+                else if (i == 2)
+                { luku2 = luku; }
+                else
+                { luku3 = luku; }               
+            }
+            int tulos = lukutaulukko(luku1, luku2, luku3);
+            Console.WriteLine("");
+            Console.WriteLine("Kolmen luvun " + luku1 + " , " + luku2 + " ja " + luku3 + " summa on " + tulos);
+            //int jee = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Anna" + jee);
+
+            //Console.Write("Anna 1. luku? ");
+            //luku1 = int.Parse(Console.ReadLine());
+
+            //Console.Write("Anna 2. luku? ");
+            //luku2 = int.Parse(Console.ReadLine());
+
+            //Console.Write("Anna 3. luku? ");
+            //luku3 = int.Parse(Console.ReadLine());
+
+            //int summa = lukutaulukko(luku1, luku2, luku3);
+
+            //Console.WriteLine("Kolmen luvun " + luku1 + " , " + luku2 + " ja " + luku3 + " summa on " + summa);
+
+
+        }
+    }
+}
+
+
+        
