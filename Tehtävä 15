@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tehtävä_15
+{
+    internal class Program
+    {
+
+        static void Main(string[] args) /* Main()- ja komentoriviargumentit, Main on C#-sovelluksen aloituspiste
+                                         * kun sovellus käynnistetään Main menetelmä on ensimmäinen joka kutsutaan*/
+        {
+            {
+            label:/* Label-tekstiä lisätäänTextBox- ohjausobjetiin se on kuvaavaa tekstiä eli virhe syöttö tekstit
+                   * catch lohkossa on label tekstiä Try Catch Finally on poikkeuskäsittelyn peruselementti c#:ssa. 
+                   * Try-lohko säilyttää koodin, joka voi aiheuttaa poikkeuksen suorituksen aikana. Catch-lohko käsittelee 
+                   * poikkeuksen, jos try block saa virheen ja 'finally' -lohko suoritetaan aina riippumatta siitä, onko 
+                   * poikkeus nostettu vai ei. Kokeilulohkossa voi olla useita sieppauslohkoja.*/
+                try
+                {
+                    int luku1, luku2;// Määritetään jaka.
+                    decimal result;// Määritetään että tulos tulee desimaalina.
+
+                    double[] luku = new double[2];// Taulukko jaettavalle ja jakajalle.
+                    Console.WriteLine("Jakolaskuohjelma. Sinun pitää antaa jaettava & jakaja ja saat tuloksen.");
+
+                    Console.Write("Anna jaettava: ");// Kysymys käyttäjlle.
+                    luku1 = Convert.ToInt32(Console.ReadLine());// Käyttäjä vastaa ja tulostetaan käyttäjän antama vastaus.
+                    Console.Write("Anna jakaja: ");// Kysytään käyttäjältä.
+                    luku2 = Convert.ToInt32(Console.ReadLine());// Käyttäjä vastaa ja tulostetaan käyttäjän antama vastaus.
+
+                    double tulo = luku[0] / luku[1];// Taulukkoon tulostetaan jaettavan ja jakajan tulo.
+                    result = (decimal)luku1 / (decimal)luku2;/* Jaettavan ja jakajan tulo desimaalilukuna Arvo result = tulosarvo, 
+                     * kun toiminnon tulos on saatavilla se tallennetaan ja palautetaan välittömästi seuraavien kutsujen yhteydessä 
+                     * eli Result, jos tehtävä on peruttu ei Result ominaisuus palauta sen sen arvoa.*/
+
+                    Console.WriteLine("Osamäärä on: " + result.ToString());// Vastaus tylod jaettava ja jakajasta
+                    Console.ReadLine();// Tyhjä rivi.
+                }
+
+                        //Usean kiinnityksen catch lohko poikkeusten käsittelemiseksi,virheiden.
+
+                catch (DivideByZeroException dex)/*Poikkeus: DivideByZeroException se heitetään, kun
+                                                  * integraali- tai desimaaliarvo yritetään jakaa nollalla.*/
+                {
+                    Console.WriteLine("Jakaja ei voi olla nolla! ");// Käyttäjälle ilmoitetaan ettei jakaja voi olla nolla.
+                    Console.WriteLine("Lisää tietoa virheestä!! \n\n" + dex.ToString() + "\n\n");// Virheen tiedot tulostettuna.
+
+                    goto label;
+                   /* goto lausunnon avulla voi siirtyä, siirtää ohjelman hallinnan määritetylle etiketti,
+                    * The etiketti on tunniste. Kun goto käsky kohdataan, ohjelman ohjaus hyppäää LABEL koodiin ja alkaa suorittaa koodia!!*/
+
+                   /* Kokonaisluvun tai desimaaliluvun jakaminen nolla aiheuttaa DivideByZeroException-poikkeuksen.
+                    *  Poikkeuksen estämiseksi varmista, että jakooperaation nimittäjä kokonaisluku- tai desimaaliarvolla on muu kuin nolla!!!!*/
+                }
+
+                catch (FormatException fex)/*Poikkeus: FormatException fex, joka heitetään kun argumentin muoto on virheellinen tai kun
+                    * yhdistetty muotomerkkijono ei ole hyvin muodostettu. Merkkijono ei ole vaaditun mallin mukainen. Tämä tapahtuu
+                    * yleensä kutsuttaessa joitain Convert-luokan menetelmiä. Useimmissa tapauksissa, varsinkin jos muuntamasi merkkijono
+                    * on käyttäjän syöttämä tai se on luettu tiedostosta eli kun yritätä jäsentää ennalta määritettejä tai koodattuja merkkijonoa,
+                    * osoittaa tämä ohjelmavirheen.*/
+                {
+                    Console.WriteLine("Eipä ollut luku!");// Käyttäjälle vastataan ettei ollut numero (luku), eli jos hän vastaa kirjaimella.
+                    Console.WriteLine("Lisää tietoa virheestä!! \n\n" + fex.ToString() + "\n\n");// Ohjelmavirheen teksti syöte käyttäjälle.
+
+                    goto label;// Mennään Label koodia lukemaan eli anna jakaja ja jaettava + osamäärä teksti
+                }
+                  /*Järjestelmäpoikkeus, kun määrität vain, minkälaista poikkeusta aiot käsitellä kyseisessä saalislohkossa (tässä tapauksessa
+                   * kaikki korotetut poikkeukset, joten se olisi sama kuin catch(Exception)catch) kun ohitat esiin tuodun varsinaisen poikkeuksen
+                   * esiintymän, voit käyttää poikkeuksena ominaisuuksia ja tehdä jotain annetuilla tiedoilla. Catch(Exception ex) nappaa kaikki
+                   * poikkeukset ja lisäksi voit noutaa viestin sen viitteen kautta. Käyttö riippuu vaatimuksesta, jos haluat näyttää poikkeussanoman,
+                   * jota voit käyttää, muuten riittää.ex.MessageCatch(Exception)*/
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ohjelman suorittamisen aikana on tapahtunut virhe!!" + ex.ToString() + "\n\n");//  \n on rivinvaihto.
+                    goto label;//Mennään label koodia lukemaan mitä käyttäjä nyt vastaa.
+                }
+                  /*Finally block: it always executes = Lopuksi lohko: se suoritetaan aina. 
+                   * Useimmissa käyttöjärjestelmissä kohtuullinen resurssien puhdistus tapahtuu osana prosessin pysäyttämistä ja purkamista.finally.*/
+
+                finally
+                {
+                    Console.WriteLine("Lopuksi: Jatka painamalla Entter ja Lopeta painamalla Ctrl + c ");
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+        
+            
+    
+
