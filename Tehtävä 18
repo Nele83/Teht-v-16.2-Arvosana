@@ -1,0 +1,29 @@
+using System;
+
+namespace Tehtävä_18
+{
+    class Program
+    {
+        static void Main(string[] args)
+
+        {
+            
+            Console.Write("Anna jokin sana tai lause, niin ohjelma tekee sille temppuja. : ");
+            string paikka = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine(paikka);
+            //char[] taulukonnimi = paikka.ToCharArray();
+
+            for (int i = 0; i < paikka.Length; i++)
+            {              
+                Console.Write(paikka[i] + " ");
+               
+            }
+            Console.WriteLine();
+            for (int i = 0; i < paikka.Length; i++)
+            {
+
+            }
+        }
+    }
+}
