@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tehtävä_16._1_Viikonpäivät
+{
+    internal class Program
+    {
+        public static int valikko()
+        {
+            Console.WriteLine("1. Syötä nimesi ");
+            Console.WriteLine("2. syötä ikäsi. ");
+            Console.WriteLine("3. Näytä nimesi. ");
+            Console.WriteLine("4. Näytä ikäsi. ");
+            Console.WriteLine("5. Poistu ohjelmasta. " + "\n");
+            int vastaus = int.Parse(Console.ReadLine());
+            vastaus--;
+            return vastaus;
+        }
+        static void Main(string[] args)
+
+        {
+            
+            string nimi = "";
+            int ikä = 0;
+            
+            Console.WriteLine("Tervetuloa ohjelmaan. Siirry valikosta valitsemalla numero. ");
+
+            label:
+
+              int valinta = valikko();            
+
+                switch (valinta)
+                {
+                case (int)Nimi.Syota_nimesi:
+                        Console.Write("Syötä nimesi: ");                        
+                        nimi = Console.ReadLine();
+
+                        goto label;
+
+                case (int)Nimi.Syota_ikasi:
+                        Console.Write("Syötä ikäsi: ");
+                        ikä = int.Parse(Console.ReadLine());
+
+                    goto label;
+
+                case (int)Nimi.Nayta_nimesi:
+                        Console.WriteLine("Nimesi on: " + nimi);
+
+                    goto label;
+
+                case (int)Nimi.Nayta_ikasi:
+                        Console.WriteLine("Ikäsi on: " + ikä);
+
+                    goto label;
+
+                    case (int)Nimi.Poistu_ohjelmasta:
+                        Console.WriteLine(" Poistutaan ...");
+
+                    goto label;
+  
+            }
+            Console.Write(" "); // \\n saa myös tekstin näkyviin.
+                                //Console.ReadLine();
+            Console.WriteLine(" ");
+        }
+        }
+    }
+    enum Nimi
+    {
+        Syota_nimesi,
+        Syota_ikasi,
+        Nayta_nimesi,
+        Nayta_ikasi,
+        Poistu_ohjelmasta 
+    }
+
+
